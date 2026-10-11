@@ -1,37 +1,43 @@
 # Sprout Scout
 
-Sprout Scout turns a few garden details into a short, seasonal planting brief and a small outdoor activity. The point is to do the planning on screen, then take the phone out of the way.
+Sprout Scout is a local-first garden planner that helps people decide what to plant, when to plant it, and what small outdoor task to do next. The goal is to spend a minute planning and then get outside instead of endlessly scrolling.
 
-## Why open AI
+## What it does
 
-Garden details are sent only to an Ollama process on your own machine. Sprout Scout uses the open-weight `qwen2.5:3b` model by default; inference goes through Ollama's local API, with no hosted AI key, cloud account, or per-request charge. You can swap the model with `OLLAMA_MODEL` or inspect/change the prompt and output schema in `server.py`. The planning flow can run without internet after Ollama and the model are installed.
+- Accepts a location (optional), last spring frost date, and the plants you want to grow
+- Generates a simple, season-aware planting window
+- Suggests 1–3 practical outdoor tasks
+- Keeps the experience focused on the garden, not the screen
 
-The model is the part that turns a user's plants, region, and frost-date estimate into a planting window and tailored outdoor tasks. If the local model is unavailable or returns invalid output, Sprout Scout reports that directly instead of passing off fixed advice as generated guidance.
+## Why this matters
 
-## Run it
+This app is designed for real-world use:
+- local inference with Ollama
+- no cloud AI service required
+- no subscription or per-request cost
+- user data stays on the machine
+- model can be swapped or tuned easily
 
-1. Install [Ollama](https://ollama.com/) and download the default model:
+## Open-source AI used
 
-   ```powershell
-   ollama pull llama3.2:latest
-   ```
+This project uses:
+- Ollama
+- open-weight model: `llama3.2:latest`
 
-2. Start Ollama if it is not already running, then start Sprout Scout from this folder:
+It runs locally on your machine, which means:
+- your garden info stays private
+- it works without internet after the model is installed
+- the model can be replaced with another local model anytime
 
-   ```powershell
-   python server.py
-   ```
+## How to run
 
-3. Open [http://127.0.0.1:8000](http://127.0.0.1:8000).
+### 1. Install Ollama
 
-To use another Ollama model, set `OLLAMA_MODEL` before starting the server. For a non-default Ollama host, set `OLLAMA_URL`. The interface uses system font fallbacks and has no remote asset dependencies.
+Download and install Ollama from:
 
-## Tests
+https://ollama.com/
 
-Run the standard-library test suite:
+### 2. Pull the model
 
 ```powershell
-python -m unittest discover -s tests
-```
-
-No Python packages are required. The server binds to loopback only and does not send garden details to a remote service. Frost dates are estimates; the generated plan is practical guidance, not a substitute for local growing advice.
+ollama pull llama3.2:latest
