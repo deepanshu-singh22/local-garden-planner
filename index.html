@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0e7">
+    <title>Sprout Scout — make a plan, then head outside</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Sprout Scout home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>sprout scout</span>
+      </a>
+      <span class="local-badge"><span aria-hidden="true"></span> LOCAL AI · YOUR GARDEN STAYS YOURS</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A SMALL PLAN FOR A BIG OUTDOOR DAY</p>
+        <h1 id="page-title">Make a plan.<br><em>Then go get your hands dirty.</em></h1>
+        <p class="intro-copy">Tell your local garden assistant what you’re growing and when frost usually leaves. It’ll make you a simple, season-aware plan — no cloud, no doomscrolling, just dirt.</p>
+      </section>
+
+      <section class="planner" aria-label="Garden planner">
+        <form id="garden-form">
+          <div class="form-heading">
+            <span class="step-number">01</span>
+            <div>
+              <h2>Start with your patch</h2>
+              <p>A rough estimate is plenty. No address needed.</p>
+            </div>
+          </div>
+
+          <label for="location">Your region <span class="optional">optional</span></label>
+          <input id="location" name="location" maxlength="80" placeholder="e.g. Portland, Oregon">
+          <p class="field-note">A city or region helps with context. This stays on your device.</p>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="frost-date">Your usual last spring frost <span class="required">required</span></label>
+              <input id="frost-date" name="last_frost_date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="plants">What do you want to grow? <span class="required">required</span></label>
+              <input id="plants" name="plants" maxlength="180" required placeholder="e.g. tomatoes, basil, snap peas">
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <p>One plan, then it’s screen-down time.</p>
+            <button id="submit-button" type="submit">Plan my outside time <span aria-hidden="true">↗</span></button>
+          </div>
+        </form>
+        <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+      </section>
+
+      <section id="result" class="result" aria-live="polite" hidden></section>
+
+      <section class="promise">
+        <span aria-hidden="true">☼</span>
+        <p><strong>The point is the garden, not the gadget.</strong> Make your plan here, take it outside, and let the phone stay in your pocket.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Sprout Scout</span>
+      <span>Open-weight AI · Runs on your own machine</span>
+    </footer>
+  </body>
+</html>

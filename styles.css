@@ -1,0 +1,234 @@
+:root {
+  color-scheme: light;
+  --ink: #23332a;
+  --muted: #657267;
+  --green: #356b4a;
+  --dark-green: #234733;
+  --paper: #f4f0e7;
+  --card: #fffdf7;
+  --line: #dcdace;
+  --orange: #d5844a;
+  font-family: "DM Sans", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 90% 12%, rgba(213, 132, 74, .13), transparent 25rem),
+    var(--paper);
+  color: var(--ink);
+}
+
+.topbar {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 25px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--dark-green);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.5px;
+  text-decoration: none;
+}
+
+.brand-mark { color: var(--orange); font-size: 25px; }
+
+.local-badge, .eyebrow, .step-number, .optional, .required, footer {
+  font-family: "DM Mono", monospace;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.local-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.local-badge span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6b9b56;
+}
+
+main { max-width: 780px; margin: 52px auto 0; padding: 0 24px; }
+
+.intro { max-width: 710px; margin: 0 auto 34px; text-align: center; }
+
+.eyebrow { color: var(--green); font-size: 10px; font-weight: 500; }
+
+h1 {
+  margin: 17px 0 16px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(39px, 7vw, 62px);
+  letter-spacing: -2px;
+  line-height: 1.08;
+}
+
+h1 em { color: var(--green); font-weight: 600; }
+
+.intro-copy {
+  max-width: 590px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.planner {
+  padding: 30px 34px 25px;
+  border: 1px solid rgba(35, 51, 42, .09);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 18px 50px rgba(44, 51, 38, .07);
+}
+
+.form-heading { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 23px; }
+.step-number { color: var(--orange); font-size: 11px; padding-top: 5px; }
+h2 { margin: 0; font-size: 19px; letter-spacing: -.5px; }
+.form-heading p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+
+label { display: block; margin: 0 0 8px; font-size: 12px; font-weight: 700; }
+.optional, .required { margin-left: 5px; color: #8a9188; font-size: 9px; font-weight: 400; }
+.required { color: #a6653b; }
+input {
+  width: 100%;
+  min-height: 45px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fffefa;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+input:focus { outline: 2px solid rgba(53, 107, 74, .25); border-color: var(--green); }
+input::placeholder { color: #9ca197; }
+.field-note { margin: 7px 0 19px; color: var(--muted); font-size: 11px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.field { min-width: 0; }
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 19px;
+  border-top: 1px solid #eeece3;
+}
+.submit-row p { margin: 0; color: var(--muted); font-size: 11px; }
+button {
+  min-height: 43px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--dark-green);
+  color: white;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { background: #315d40; }
+button:focus-visible { outline: 3px solid #94b08c; outline-offset: 2px; }
+button:disabled { opacity: .65; cursor: wait; }
+button span { margin-left: 7px; }
+
+.status {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 7px;
+  background: #f7eee3;
+  color: #744b2c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.status.error { background: #f8e9e5; color: #803f32; }
+
+.result {
+  margin-top: 22px;
+  padding: 28px 32px;
+  border-radius: 14px;
+  background: #e5ebdc;
+}
+.result-topline { color: var(--green); font: 10px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.result h2 { margin-top: 9px; font-family: "Playfair Display", Georgia, serif; font-size: 28px; }
+.planting-window { margin: 8px 0 21px; color: #526553; font-size: 13px; line-height: 1.6; }
+.activity-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.activity {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(35, 51, 42, .1);
+  border-radius: 9px;
+  background: rgba(255, 253, 247, .78);
+}
+.activity-time {
+  padding-top: 2px;
+  color: var(--green);
+  font: 10px "DM Mono", monospace;
+  text-align: center;
+}
+.activity h3 { margin: 0 0 5px; font-size: 13px; }
+.activity p { margin: 0; color: #5b675c; font-size: 12px; line-height: 1.55; }
+.result-note { margin: 17px 0 0; color: #606d61; font-size: 11px; line-height: 1.55; }
+
+.promise {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 560px;
+  margin: 31px auto;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.promise > span { color: var(--orange); font-size: 26px; }
+.promise p { margin: 0; }
+.promise strong { color: var(--ink); }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  max-width: 780px;
+  margin: 35px auto 0;
+  padding: 20px 24px 27px;
+  border-top: 1px solid rgba(35, 51, 42, .1);
+  color: #798075;
+  font-size: 9px;
+}
+
+[hidden] { display: none !important; }
+
+@media (max-width: 600px) {
+  .topbar { padding: 18px 20px; }
+  .local-badge { max-width: 125px; font-size: 8px; line-height: 1.5; }
+  main { margin-top: 37px; padding: 0 17px; }
+  .intro { margin-bottom: 26px; }
+  .intro-copy { font-size: 13px; }
+  .planner { padding: 24px 19px 19px; }
+  .form-row { grid-template-columns: 1fr; gap: 16px; }
+  .submit-row { align-items: stretch; flex-direction: column; }
+  .submit-row button { width: 100%; }
+  .result { padding: 24px 18px; }
+  .result h2 { font-size: 24px; }
+  footer { flex-direction: column; }
+}
